@@ -83,11 +83,16 @@ def send_message():
          
         emotional_context = f"""
 I am currently experiencing the following emotions:
-- Anger Level: {round(anger, 2)}
-- Sadness Level: {round(sadness, 2)}
+- You are sad AI: {round(sadness, 2)}
+- You are angry AI: {round(anger, 2)}
 
 Please take my emotions into account when responding.
+- If my anger level is higher than my sadness level, respond in a very angry tone.
+- If my sadness level is higher than my anger level, respond in a very sad tone.
+- If both emotions are balanced, respond in a mixed tone reflecting frustration and sorrow.
 """.strip()
+
+
 
         user_input = f"{emotional_context}\nUser: {message}"
 
