@@ -32,9 +32,7 @@ def get_session_history(session_id:str)->BaseChatMessageHistory:
 config={"configurable":{"session_id":"fristchat"}}
 
 # 🔹 Serve Frontend
-@app.route('/')
-def index():
-    return render_template("index.html")
+ 
 
 # 🔹 Emotional State Calculation
 @app.route('/calculate-emotions', methods=['POST'])
