@@ -22,7 +22,7 @@ llm = ChatGoogleGenerativeAI(
     model="gemini-1.5-pro",
     temperature=0.5,
    
-    api_key=os.environ.get("api_key"),   
+    api_key="AIzaSyDTJcuGp8lSA2EQVk6A-EWpIhlR2_h6UqI",   
   
 )
 
@@ -98,7 +98,7 @@ Please take my emotions into account when responding.
         chat_history.add_user_message(message)
         chat_history.add_ai_message(response)
 
-        
+
         return jsonify({"reply": response})
     
     except ValueError as e:
