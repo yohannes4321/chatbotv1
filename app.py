@@ -14,6 +14,10 @@ load_dotenv()
 app = Flask(__name__)  # ✅ Fixed missing argument
 CORS(app)
  
+
+# Or, allow only requests from your frontend domain
+CORS(app, origins=["https://frontend-ai.onrender.com"])
+ 
 # 🔹 Set up OpenRouter as the chatbot LLM
 llm = ChatGoogleGenerativeAI(
     model="gemini-1.5-pro",
