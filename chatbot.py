@@ -13,13 +13,13 @@ load_dotenv()
 
 app = Flask(__name__)  # ✅ Fixed missing argument
 CORS(app)
-
+ 
 # 🔹 Set up OpenRouter as the chatbot LLM
 llm = ChatGoogleGenerativeAI(
     model="gemini-1.5-pro",
     temperature=0.5,
    
-    api_key="AIzaSyDiGbLN9bRveFz84_ANa7qnEKz8wum4lGI",  # Replace with your actual API key
+    api_key=os.environ.get("api_key"),  # Replace with your actual API key
   
 )
 

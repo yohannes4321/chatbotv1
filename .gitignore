@@ -1,0 +1,18 @@
+# Virtual environments
+venv/
+env/
+
+# Bytecode and cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment variables and configurations
+.env
+*.env
+config.py
+
+# Logs and database
+*.log
+instance/
+db.sqlite3
