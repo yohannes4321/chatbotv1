@@ -68,7 +68,8 @@ def send_message():
     try:
         message = data.get("message", "")
         parameters = data.get("parameters", {})
-
+        session_id = data.get("session_id", "default_session")
+        chat_history = get_session_history(session_id)
         valence = float(parameters.get("valence", 4))
         arousal = float(parameters.get("arousal", 4))
         selection_threshold = float(parameters.get("selectionThreshold", 4))
@@ -93,7 +94,11 @@ Please take my emotions into account when responding.
         print("\n🔹 Sending to OpenRouter:")
         print(user_input)
 
-        response = RunnableWithMessageHistory(llm,get_session_history).invoke(user_input,config=config).content  # ✅ Updated method call
+        response = RunnableWithMessageHistory(llm,get_session_history).invoke(user_input,config=config).content   
+        chat_history.add_user_message(message)
+        chat_history.add_ai_message(response)
+
+        
         return jsonify({"reply": response})
     
     except ValueError as e:
